@@ -1,0 +1,6 @@
+.link {
+  color: blue;
+}
+.link__active {
+  color: crimson;
+}

@@ -1,14 +1,36 @@
 import "./App.css";
-import React from "react";
-import { Route } from "react-router-dom";
-import HomePage from "./views/HomePage";
+import { Route, Switch } from "react-router-dom";
+
+import Loader from "./components/Loader/Loader";
 import MoviesPage from "./views/MoviesPage";
+import MovieDetailsPage from "./views/MovieDetailsPage";
 
-const App = () => (
+// import Cast from "./views/Cast";
+// import Reviews from "./views/Reviews";
+import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
+import AppBar from "./components/AppBar/AppBar";
+import { lazy, Suspense } from "react";
+const HomePage = lazy(() => import("./views/HomePage"));
+export default function App() {
   <>
-    <Route exact path="/" component={HomePage} />
-    <Route path="/movies" component={MoviesPage} />
-  </>
-);
-
-export default App;
+    <AppBar />
+    <Suspense>
+      <Switch fallback={<Loader />}>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/movies">
+          <MoviesPage />
+        </Route>
+        <Route path="/movies/:movieId">
+          <MovieDetailsPage />
+        </Route>
+        {/* <Route path="/movies/:movieId/cast" component={Cast} />
+      <Route path="/movies/:movieId/reviews" component={Reviews} /> */}
+        <Route>
+          <NotFoundPage />
+        </Route>
+      </Switch>
+    </Suspense>
+  </>;
+}
