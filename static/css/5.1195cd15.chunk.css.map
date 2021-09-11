@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/Cast/cast.module.css"],"names":[],"mappings":"AAAA,sBACE,YAAa,CACb,cAAe,CACf,aAAc,CACd,gBACF","file":"5.1195cd15.chunk.css","sourcesContent":[".castList {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: 0 auto;\r\n  padding-top: 20px;\r\n}\r\n.cardItem {\r\n}\r\n.name {\r\n}\r\n.character {\r\n}\r\n"]}
